@@ -32,25 +32,74 @@ var app = {
     //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
+    initPushwoosh: function() {
+        var pushNotification = window.plugins.pushNotification;
+ 
+        document.addEventListener('push-notification', function(event) {
+            var notification = event.notification;
+            alert(notification.aps.alert);
+            pushNotification.setApplicationIconBadgeNumber(0);
+        });
+ 
+        pushNotification.onDeviceReady({pw_appid:"42B9B-86BC0"});
+     
+        pushNotification.registerDevice(
+            function(status) {
+                var deviceToken = status['deviceToken'];
+                console.warn('registerDevice: ' + deviceToken);
+            },
+            function(status) {
+                console.warn('failed to register : ' + JSON.stringify(status));
+                alert(JSON.stringify(['failed to register ', status]));
+            }
+        );
+        pushNotification.setApplicationIconBadgeNumber(0);
+    },
+
     onDeviceReady: function() {
 
 //        foursquare.login('X2O4XENA0DKX3LVC3JUHFZZSG4VIIIQWVQVXO5P20FY4VYBQ', 'CAALY0YG4X04MJGLV0OP0AY0EWTPWT4JZWPJ4J14NNMLO0XC', 
 
-        var foursquare = new CC.CordovaFoursquare();
-
+/*
         facebookConnectPlugin.login(["public_profile"], function (userData) {
             // success here
             alert("UserInfo: " + JSON.stringify(userData));
         }, function (error) {
             // fail here
-            alert("" + error)
-        });
-
-        launchnavigator.navigateByLatLon(41, 29, function () {
-            alert("success...∏");
-        }, function (error) {
             alert("" + error);
         });
+*/
+
+        navigator.geolocation.getCurrentPosition( function(position) {
+
+            alert(  'Latitude: '          + position.coords.latitude          + '\n' +
+                    'Longitude: '         + position.coords.longitude         + '\n' +
+                    'Altitude: '          + position.coords.altitude          + '\n' +
+                    'Accuracy: '          + position.coords.accuracy          + '\n' +
+                    'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+                    'Heading: '           + position.coords.heading           + '\n' +
+                    'Speed: '             + position.coords.speed             + '\n' +
+                    'Timestamp: '         + position.timestamp                + '\n');
+
+            launchnavigator.navigateByLatLon(41.056129, 28.99381, function () {
+//                    alert("success...∏");
+
+            }, function (error) {
+                    alert("" + error);
+            });
+
+        }, function (e) {
+            var msgText = "Geolocation error: #" + e.code + "\n" + e.message;
+            console.log(msgText);
+            alert(msgText);
+        }, {
+            timeout : 5000,
+            enableHighAccuracy : true
+        });
+
+//        var foursquare = new CC.CordovaFoursquare();
+
+
 
         app.receivedEvent('deviceready');
     },

@@ -46,7 +46,16 @@
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		F78E0C0BD8CB4F91A4805719 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA72541AAECD4E408F9C323A /* FacebookSDK.framework */; };
-		A722BC9C7EDF4BBB9689F10D /* CordovaFoursquare.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A88C45DC004ADB9E33632A /* CordovaFoursquare.m */; };
+		A7889CC6EEDB49E4A58801AC /* PushNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E95BD3DBB340B4AF2D857F /* PushNotification.m */; };
+		C3927A1986C741AB92736AEB /* Pushwoosh in Resources */ = {isa = PBXBuildFile; fileRef = 0F28F6D7B244430191E7E043 /* Pushwoosh */; };
+		07951143DA1B4BF888746486 /* Storekit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE44042AEC934E47AB2FB0FE /* Storekit.framework */; };
+		EABEF9C150A14270A7CF7ED2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA570534A7743B1AC49D457 /* CoreLocation.framework */; };
+		236A534030984E69A4B2742B /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0F218717654533AE26BF86 /* CDVLocation.m */; };
+		4FA42D108CAD4A61A8C4CA6E /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A8032DB6F2476AA9AE4514 /* AsyncImageView.m */; };
+		6F9C973AF61F42B4B9A79BC5 /* CDVAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1926D6846F454E76A269F699 /* CDVAnnotation.m */; };
+		540C97E67D5F405380906BA8 /* MapKit.m in Sources */ = {isa = PBXBuildFile; fileRef = B71E2579952C481383DC57E6 /* MapKit.m */; };
+		3A572ABBFB6F4E03A351E58D /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E7EDDD0D21E4535BCF1E232 /* icon.png */; };
+		C5BFF2C4504E4733B6DDD939 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D136FD164E6E49DCBBEF0DF9 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,8 +127,22 @@
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "Çetinler Arçelik/config.xml"; sourceTree = "<group>"; };
-		A6A88C45DC004ADB9E33632A /* CordovaFoursquare.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CordovaFoursquare.m"; path = "com.ccsoft.plugin.CordovaFoursquare/CordovaFoursquare.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		C467EBC39DF943D6B3CCD587 /* CordovaFoursquare.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CordovaFoursquare.h"; path = "com.ccsoft.plugin.CordovaFoursquare/CordovaFoursquare.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		92E95BD3DBB340B4AF2D857F /* PushNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "PushNotification.m"; path = "com.pushwoosh.plugins.pushwoosh/ios/PushNotification.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		0F28F6D7B244430191E7E043 /* Pushwoosh */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = "Pushwoosh"; path = "Çetinler Arçelik/Plugins/com.pushwoosh.plugins.pushwoosh/Pushwoosh"; sourceTree = "<group>"; fileEncoding = 4; };
+		C0FA824A24E54ACAB10435E3 /* PushNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PushNotification.h"; path = "com.pushwoosh.plugins.pushwoosh/ios/PushNotification.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		6BD0EC7EC8234FACBC6C406D /* PushNotificationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PushNotificationManager.h"; path = "com.pushwoosh.plugins.pushwoosh/ios/PushNotificationManager.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		FE44042AEC934E47AB2FB0FE /* Storekit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Storekit.framework"; path = "System/Library/Frameworks/Storekit.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		6EA570534A7743B1AC49D457 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreLocation.framework"; path = "System/Library/Frameworks/CoreLocation.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		FA0F218717654533AE26BF86 /* CDVLocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVLocation.m"; path = "org.apache.cordova.geolocation/CDVLocation.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		6272540213594FB0930DA9D6 /* CDVLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVLocation.h"; path = "org.apache.cordova.geolocation/CDVLocation.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		88A8032DB6F2476AA9AE4514 /* AsyncImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "AsyncImageView.m"; path = "com.phonegap.plugins.mapkit/AsyncImageView.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		1926D6846F454E76A269F699 /* CDVAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVAnnotation.m"; path = "com.phonegap.plugins.mapkit/CDVAnnotation.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		B71E2579952C481383DC57E6 /* MapKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "MapKit.m"; path = "com.phonegap.plugins.mapkit/MapKit.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		85C8AE2300DA4C12BDBFDC29 /* AsyncImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "AsyncImageView.h"; path = "com.phonegap.plugins.mapkit/AsyncImageView.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		44A6BCB65C124E928C82179B /* CDVAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVAnnotation.h"; path = "com.phonegap.plugins.mapkit/CDVAnnotation.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		3CDA8DA566F7465D818BC42B /* MapKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MapKit.h"; path = "com.phonegap.plugins.mapkit/MapKit.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		8E7EDDD0D21E4535BCF1E232 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = "icon.png"; path = "icon.png"; sourceTree = "<group>"; fileEncoding = 4; };
+		D136FD164E6E49DCBBEF0DF9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "MapKit.framework"; path = "System/Library/Frameworks/MapKit.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +160,10 @@
 				5BE3D309FFA1417A95467CF9 /* Social.framework in Frameworks */,
 				156A12DB4D4346DDA63E5847 /* Accounts.framework in Frameworks */,
 				09CCAF137DBD4E509CB8EBDC /* Security.framework in Frameworks */,
+				C3927A1986C741AB92736AEB /* Pushwoosh in Resources */,
+				07951143DA1B4BF888746486 /* Storekit.framework in Frameworks */,
+				EABEF9C150A14270A7CF7ED2 /* CoreLocation.framework in Frameworks */,
+				C5BFF2C4504E4733B6DDD939 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +225,7 @@
 				308D052D1370CCF300D202BF /* icons */,
 				308D05311370CCF300D202BF /* splash */,
 				8D1107310486CEB800E47090 /* Çetinler Arçelik-Info.plist */,
+				8E7EDDD0D21E4535BCF1E232 /* icon.png */,
 			);
 			name = Resources;
 			path = "Çetinler Arçelik/Resources";
@@ -215,6 +243,11 @@
 				0F1AE09D2DEA4525A6F9D674 /* Social.framework */,
 				50FBFA1F8373448D802F86B7 /* Accounts.framework */,
 				C193252F4816476DB4E166FA /* Security.framework */,
+				4EA4EEA2A0C44DC18872D07C /* libUAirship-5.1.0.a */,
+				0F28F6D7B244430191E7E043 /* Pushwoosh */,
+				FE44042AEC934E47AB2FB0FE /* Storekit.framework */,
+				6EA570534A7743B1AC49D457 /* CoreLocation.framework */,
+				D136FD164E6E49DCBBEF0DF9 /* MapKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -232,8 +265,17 @@
 			children = (
 				8A799246F4E3411CB7EAD53A /* FacebookConnectPlugin.m */,
 				A9B1913FF068426FBC414F4F /* FacebookConnectPlugin.h */,
-				A6A88C45DC004ADB9E33632A /* CordovaFoursquare.m */,
-				C467EBC39DF943D6B3CCD587 /* CordovaFoursquare.h */,
+				92E95BD3DBB340B4AF2D857F /* PushNotification.m */,
+				C0FA824A24E54ACAB10435E3 /* PushNotification.h */,
+				6BD0EC7EC8234FACBC6C406D /* PushNotificationManager.h */,
+				FA0F218717654533AE26BF86 /* CDVLocation.m */,
+				6272540213594FB0930DA9D6 /* CDVLocation.h */,
+				88A8032DB6F2476AA9AE4514 /* AsyncImageView.m */,
+				1926D6846F454E76A269F699 /* CDVAnnotation.m */,
+				B71E2579952C481383DC57E6 /* MapKit.m */,
+				85C8AE2300DA4C12BDBFDC29 /* AsyncImageView.h */,
+				44A6BCB65C124E928C82179B /* CDVAnnotation.h */,
+				3CDA8DA566F7465D818BC42B /* MapKit.h */,
 			);
 			name = Plugins;
 			path = "Çetinler Arçelik/Plugins";
@@ -387,6 +429,7 @@
 				7E7966E11810823500FA85AD /* icon-50@2x.png in Resources */,
 				7E7966E51810823500FA85AD /* icon-76@2x.png in Resources */,
 				30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */,
+				3A572ABBFB6F4E03A351E58D /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,7 +462,11 @@
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				3A834686C21240F59DC83168 /* FacebookConnectPlugin.m in Sources */,
-				A722BC9C7EDF4BBB9689F10D /* CordovaFoursquare.m in Sources */,
+				A7889CC6EEDB49E4A58801AC /* PushNotification.m in Sources */,
+				236A534030984E69A4B2742B /* CDVLocation.m in Sources */,
+				4FA42D108CAD4A61A8C4CA6E /* AsyncImageView.m in Sources */,
+				6F9C973AF61F42B4B9A79BC5 /* CDVAnnotation.m in Sources */,
+				540C97E67D5F405380906BA8 /* MapKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +513,10 @@
 				);
 				PRODUCT_NAME = "Çetinler Arçelik";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Çetinler Arçelik/Plugins/com.pushwoosh.plugins.pushwoosh\"",
+				);
 			};
 			name = Debug;
 		};
@@ -499,6 +550,10 @@
 				);
 				PRODUCT_NAME = "Çetinler Arçelik";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Çetinler Arçelik/Plugins/com.pushwoosh.plugins.pushwoosh\"",
+				);
 			};
 			name = Release;
 		};

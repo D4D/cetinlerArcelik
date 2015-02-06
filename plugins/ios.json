@@ -29,6 +29,36 @@
                         {
                             "xml": "true",
                             "count": 1
+                        },
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "libz.dylib": [],
+                    "CFNetwork.framework": [],
+                    "CoreGraphics.framework": [],
+                    "Foundation.framework": [],
+                    "MobileCoreServices.framework": [],
+                    "SystemConfiguration.framework": [],
+                    "UIKit.framework": [],
+                    "CoreTelephony.framework": [],
+                    "Storekit.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
+                    ],
+                    "CoreLocation.framework": [
+                        {
+                            "xml": "false",
+                            "count": 2
+                        }
+                    ],
+                    "MapKit.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
                         }
                     ]
                 }
@@ -69,10 +99,19 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"CordovaFoursquare\"><param name=\"ios-package\" value=\"CordovaFoursquare\" /></feature>",
+                            "xml": "<feature name=\"PushNotification\"><param name=\"ios-package\" value=\"PushNotification\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Geolocation\"><param name=\"ios-package\" value=\"CDVLocation\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"MapKit\"><param name=\"ios-package\" value=\"MapKitView\" /></feature>",
                             "count": 1
                         }
-                    ]
+                    ],
+                    "/widget": []
                 }
             },
             "*-Info.plist": {
@@ -94,6 +133,22 @@
                             "xml": "<array><dict><key>CFBundleURLSchemes</key><array><string>fb1547196455520246</string></array></dict></array>",
                             "count": 1
                         }
+                    ],
+                    "NSLocationWhenInUseUsageDescription": [
+                        {
+                            "xml": "<string />",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "undefined": {
+                "parents": {
+                    "undefined": [
+                        {
+                            "xml": "<access origin=\"*.pushwoosh.com\" />",
+                            "count": 1
+                        }
                     ]
                 }
             }
@@ -108,7 +163,13 @@
         "uk.co.workingedge.phonegap.plugin.LaunchNavigator": {
             "PACKAGE_NAME": "com.d4d.cetinler"
         },
-        "com.ccsoft.plugin.CordovaFoursquare": {
+        "com.pushwoosh.plugins.pushwoosh": {
+            "PACKAGE_NAME": "com.d4d.cetinler"
+        },
+        "org.apache.cordova.geolocation": {
+            "PACKAGE_NAME": "com.d4d.cetinler"
+        },
+        "com.phonegap.plugins.mapkit": {
             "PACKAGE_NAME": "com.d4d.cetinler"
         }
     },

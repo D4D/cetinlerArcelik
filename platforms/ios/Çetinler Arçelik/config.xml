@@ -32,8 +32,11 @@
     <feature name="LaunchNavigator">
         <param name="ios-package" value="LaunchNavigator" />
     </feature>
-    <feature name="CordovaFoursquare">
-        <param name="ios-package" value="CordovaFoursquare" />
+    <feature name="PushNotification">
+        <param name="ios-package" value="PushNotification" />
+    </feature>
+    <feature name="Geolocation">
+        <param name="ios-package" value="CDVLocation" />
     </feature>
     <name>Çetinler Arçelik</name>
     <description>Hello World sample application that responds to the deviceready event.</description>
@@ -55,6 +58,7 @@
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />
+    <access origin="*.pushwoosh.com" />
     <gap:plugin name="org.apache.cordova.battery-status" />
     <gap:plugin name="org.apache.cordova.camera" />
     <gap:plugin name="org.apache.cordova.media-capture" />
@@ -103,4 +107,7 @@
     <gap:splash gap:platform="ios" height="768" src="www/res/screen/ios/screen-ipad-landscape.png" width="1024" />
     <gap:splash gap:platform="winphone" src="www/res/screen/windows-phone/screen-portrait.jpg" />
     <access origin="*" />
+    <feature name="MapKit">
+        <param name="ios-package" value="MapKitView" />
+    </feature>
 </widget>
