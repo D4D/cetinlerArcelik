@@ -30,6 +30,12 @@
                             "xml": "true",
                             "count": 1
                         }
+                    ],
+                    "MapKit.framework": [
+                        {
+                            "xml": "false",
+                            "count": 1
+                        }
                     ]
                 }
             },
@@ -63,6 +69,10 @@
                         {
                             "xml": "<access origin=\"https://*.akamaihd.net\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"MapKit\"><param name=\"ios-package\" value=\"MapKitView\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -95,6 +105,9 @@
         "com.phonegap.plugins.facebookconnect": {
             "APP_ID": "1547196455520246",
             "APP_NAME": "Çetinler Arçelik",
+            "PACKAGE_NAME": "com.d4d.cetinler"
+        },
+        "com.phonegap.plugins.mapkit": {
             "PACKAGE_NAME": "com.d4d.cetinler"
         }
     },

@@ -45,6 +45,11 @@
 		40A2955CF0B3458E8307CB1A /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 295466C1B3194FB7988CB042 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		1034F415476D43B7B136395D /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8163241DA59F41B8AE788705 /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C7EEFC6BC0D74AB886B4621D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCCE2F621A984DE8B0E2C7D0 /* Security.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		12EEA616EB0147EAAB7B9D91 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E83CEA3D47664140AF4A36F1 /* AsyncImageView.m */; };
+		282DB261C04649C19B015B29 /* CDVAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8552747B0E394914BFB030BE /* CDVAnnotation.m */; };
+		BA5BF827264F425D9A573F9A /* MapKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 786892B43D21495AB377E5CD /* MapKit.m */; };
+		794C5D72D2D94BF8BAD09A2F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFA082028264DDF972CF0C2 /* icon.png */; };
+		D1D31E17D3D34041B0729FFE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8187D3963344CB9AFA43772 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +122,14 @@
 		295466C1B3194FB7988CB042 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Social.framework"; path = "System/Library/Frameworks/Social.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 		8163241DA59F41B8AE788705 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Accounts.framework"; path = "System/Library/Frameworks/Accounts.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 		CCCE2F621A984DE8B0E2C7D0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Security.framework"; path = "System/Library/Frameworks/Security.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		E83CEA3D47664140AF4A36F1 /* AsyncImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "AsyncImageView.m"; path = "com.phonegap.plugins.mapkit/AsyncImageView.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		8552747B0E394914BFB030BE /* CDVAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVAnnotation.m"; path = "com.phonegap.plugins.mapkit/CDVAnnotation.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		786892B43D21495AB377E5CD /* MapKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "MapKit.m"; path = "com.phonegap.plugins.mapkit/MapKit.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		CB9E9D4DFBEA45A89D98701B /* AsyncImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "AsyncImageView.h"; path = "com.phonegap.plugins.mapkit/AsyncImageView.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		7538FD68AAE04072B3900A6B /* CDVAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVAnnotation.h"; path = "com.phonegap.plugins.mapkit/CDVAnnotation.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		028223FE5FD541869F4085CC /* MapKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MapKit.h"; path = "com.phonegap.plugins.mapkit/MapKit.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		9EFA082028264DDF972CF0C2 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = "icon.png"; path = "icon.png"; sourceTree = "<group>"; fileEncoding = 4; };
+		D8187D3963344CB9AFA43772 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "MapKit.framework"; path = "System/Library/Frameworks/MapKit.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +146,7 @@
 				40A2955CF0B3458E8307CB1A /* Social.framework in Frameworks */,
 				1034F415476D43B7B136395D /* Accounts.framework in Frameworks */,
 				C7EEFC6BC0D74AB886B4621D /* Security.framework in Frameworks */,
+				D1D31E17D3D34041B0729FFE /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +208,7 @@
 				308D052D1370CCF300D202BF /* icons */,
 				308D05311370CCF300D202BF /* splash */,
 				8D1107310486CEB800E47090 /* Çetinler Arçelik-Info.plist */,
+				9EFA082028264DDF972CF0C2 /* icon.png */,
 			);
 			name = Resources;
 			path = "Çetinler Arçelik/Resources";
@@ -210,6 +225,7 @@
 				295466C1B3194FB7988CB042 /* Social.framework */,
 				8163241DA59F41B8AE788705 /* Accounts.framework */,
 				CCCE2F621A984DE8B0E2C7D0 /* Security.framework */,
+				D8187D3963344CB9AFA43772 /* MapKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -227,6 +243,12 @@
 			children = (
 				431DE8536BEF4D2280B80438 /* FacebookConnectPlugin.m */,
 				8BA897D8118A4507B0C9FA01 /* FacebookConnectPlugin.h */,
+				E83CEA3D47664140AF4A36F1 /* AsyncImageView.m */,
+				8552747B0E394914BFB030BE /* CDVAnnotation.m */,
+				786892B43D21495AB377E5CD /* MapKit.m */,
+				CB9E9D4DFBEA45A89D98701B /* AsyncImageView.h */,
+				7538FD68AAE04072B3900A6B /* CDVAnnotation.h */,
+				028223FE5FD541869F4085CC /* MapKit.h */,
 			);
 			name = Plugins;
 			path = "Çetinler Arçelik/Plugins";
@@ -380,6 +402,7 @@
 				7E7966E11810823500FA85AD /* icon-50@2x.png in Resources */,
 				7E7966E51810823500FA85AD /* icon-76@2x.png in Resources */,
 				30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */,
+				794C5D72D2D94BF8BAD09A2F /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +435,9 @@
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				2692E52BA7BE4D8D8C397086 /* FacebookConnectPlugin.m in Sources */,
+				12EEA616EB0147EAAB7B9D91 /* AsyncImageView.m in Sources */,
+				282DB261C04649C19B015B29 /* CDVAnnotation.m in Sources */,
+				BA5BF827264F425D9A573F9A /* MapKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

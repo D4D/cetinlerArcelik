@@ -3,14 +3,18 @@
 
 	var cordovaRef = window.PhoneGap || window.Cordova || window.cordova;
 
-	var MapKit = function() {
-		this.options = {
-			height: 460,
-			diameter: 1000,
-			atBottom: true,
-			lat: 49.281468,
-			lon: -123.104446
-		};
+	var MapKit = function(opt) {
+		if(opt) {
+			this.options = opt;
+		}else{
+			this.options = {
+				height: 640,
+				diameter: 1000,
+				atBottom: true,
+				lat: 41.026406,
+				lon: 29.126490
+			};
+		}
 
 		this.mapType = {
             MAP_TYPE_NONE: 0, //No base map tiles.

@@ -45,7 +45,7 @@ var app = {
         console.log('Received Event: ' + id);
     },
     onDeviceReady: function() {
-
+        console.log('Javascript OK');
         appState = "location";
 
         switch(appState) {
@@ -142,39 +142,20 @@ var app = {
     },
 
     showMap: function() {
-        var pins = [{
-                lat: 41.056728,
-                lon: 28.995595,
-                title: "A Cool Title",
-                snippet: "A Really Cool Snippet",
-//                icon: mapKit.iconColors.HUE_ROSE
-            }, {
-                lat: 41.053468,
-                lon: 28.993696,
-                title: "A Cool Title, with no Snippet",
-                icon: {
-                  type: "asset",
-                  resource: "www/img/logo.png",             //an image in the asset directory
- //                 pinColor: mapKit.iconColors.HUE_VIOLET       //iOS only
-                }
-            }, {
-                lat: 41.054447,
-                lon: 28.999501,
-                title: "Awesome Title",
-                snippet: "Awesome Snippet",
-  //              icon: mapKit.iconColors.HUE_GREEN
-            }, {
-                lat: 41.057005,
-                lon: 29.000096,
-                title: "Awesome Title",
-                snippet: "Awesome Snippet",
- //               icon: mapKit.iconColors.HUE_GREEN
-            }];
-        alert('huhh?');
+        navigator.geolocation.getCurrentPosition( function(position) {
+            window.mapKit = new MapKit({
+                height: 640,
+                diameter: 1000,
+                atBottom: true,
+                lat: position.coords.latitude,
+                lon: position.coords.longitude
+            });
+        }, function (error) {
+            alert("" + error);
+        });
+
         var success = function() {
-//            document.getElementById('hide_map').style.display = 'block';
-//            document.getElementById('show_map').style.display = 'none';
-alert('success call');
+alert(pins);
             mapKit.addMapPins(pins, function() {
                 console.log('adMapPins success');
                 document.getElementById('clear_map_pins').style.display = 'block';
@@ -182,18 +163,13 @@ alert('success call');
                 alert('error');
             });
         };
-        alert('hah!');
-        console.log('Hey!');
-        debug.log('hallooo...');
         mapKit.showMap(success, function() {
             alert('error');
         });
     },
     hideMap: function() {
         var success = function() {
-            document.getElementById('hide_map').style.display = 'none';
-            document.getElementById('clear_map_pins').style.display = 'none';
-            document.getElementById('show_map').style.display = 'block';
+
         };
         var error = function() {
             console.log('error');
