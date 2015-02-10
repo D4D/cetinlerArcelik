@@ -3,10 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "angular": "1.x",
-    "angular-route": "1.x",
-    "mobile-angular-ui": "1.2.x",
     "font-awesome": "4.x",
-    "bootstrap": "3.x"
+    "bootstrap": "3.x",
+    "almond": "~0.3.0",
+    "backbone": "~1.1.2",
+    "backbone.marionette": "~2.3.2",
+    "lodash": "~3.1.0",
+    "requirejs": "~2.1.16",
+    "requirejs-text": "~2.0.13"
   }
 }
