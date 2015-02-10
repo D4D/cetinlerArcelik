@@ -8,16 +8,16 @@
 			height: 460,
 			diameter: 1000,
 			atBottom: true,
-			lat: 49.281468,
-			lon: -123.104446
+			lat: 41.056129,
+			lon: 28.99381
 		};
 
 		this.mapType = {
-            MAP_TYPE_NONE: 0, //No base map tiles.
-            MAP_TYPE_NORMAL: 1, //Basic maps.
-            MAP_TYPE_SATELLITE: 2, //Satellite maps with no labels.
-            MAP_TYPE_TERRAIN: 3, //Terrain maps.
-            MAP_TYPE_HYBRID: 4 //Satellite maps with a transparent layer of major streets.
+            MAP_TYPE_NONE: 0,		//No base map tiles.
+            MAP_TYPE_NORMAL: 1,		//Basic maps.
+            MAP_TYPE_SATELLITE: 2, 	//Satellite maps with no labels.
+            MAP_TYPE_TERRAIN: 3, 	//Terrain maps.
+            MAP_TYPE_HYBRID: 4 		//Satellite maps with a transparent layer of major streets.
         };
 
         this.iconColors = {

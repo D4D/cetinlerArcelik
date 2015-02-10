@@ -47,7 +47,7 @@ var app = {
         console.log('Received Event: ' + id);
 
     },
-    showMap: function() {
+    showMap: function() {ng...');
         var pins = [
             {
                 lat: 49.28115,

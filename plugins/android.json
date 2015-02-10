@@ -9,6 +9,14 @@
                 "parents": {
                     "/*": [
                         {
+                            "xml": "<feature name=\"LaunchNavigator\"><param name=\"android-package\" value=\"uk.co.workingedge.phonegap.plugin.LaunchNavigator\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"PushNotification\"><param name=\"android-package\" onload=\"true\" value=\"com.pushwoosh.plugin.pushnotifications.PushNotifications\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"FacebookConnectPlugin\"><param name=\"android-package\" value=\"org.apache.cordova.facebook.ConnectPlugin\" /></feature>",
                             "count": 1
                         },
@@ -30,14 +38,6 @@
                         },
                         {
                             "xml": "<access origin=\"https://*.akamaihd.net\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"LaunchNavigator\"><param name=\"android-package\" value=\"uk.co.workingedge.phonegap.plugin.LaunchNavigator\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"PushNotification\"><param name=\"android-package\" onload=\"true\" value=\"com.pushwoosh.plugin.pushnotifications.PushNotifications\" /></feature>",
                             "count": 1
                         }
                     ],
@@ -174,7 +174,7 @@
                             "count": 1
                         },
                         {
-                            "xml": "<meta-data android:name=\"com.google.android.maps.v2.API_KEY\" android:value=\"AIzaSyAqkJNbZZBETipXweOGXpqWaKrlksIIvRI\" />",
+                            "xml": "<meta-data android:name=\"com.google.android.maps.v2.API_KEY\" android:value=\"AIzaSyD0qzvr5IIkSzAgx2v7_gmzhRwegAJ3ynw\" />",
                             "count": 1
                         },
                         {
@@ -208,11 +208,6 @@
         }
     },
     "installed_plugins": {
-        "com.phonegap.plugins.facebookconnect": {
-            "APP_ID": "1547196455520246",
-            "APP_NAME": "Çetinler Arçelik",
-            "PACKAGE_NAME": "com.d4d.cetinler"
-        },
         "uk.co.workingedge.phonegap.plugin.LaunchNavigator": {
             "PACKAGE_NAME": "com.d4d.cetinler"
         },
@@ -223,7 +218,15 @@
             "PACKAGE_NAME": "com.d4d.cetinler"
         },
         "com.phonegap.plugins.mapkit": {
-            "API_KEY": "AIzaSyAqkJNbZZBETipXweOGXpqWaKrlksIIvRI",
+            "API_KEY": "AIzaSyD0qzvr5IIkSzAgx2v7_gmzhRwegAJ3ynw",
+            "PACKAGE_NAME": "com.d4d.cetinler"
+        },
+        "org.apache.cordova.console": {
+            "PACKAGE_NAME": "com.d4d.cetinler"
+        },
+        "com.phonegap.plugins.facebookconnect": {
+            "APP_ID": "1547196455520246",
+            "APP_NAME": "Çetinler Arçelik",
             "PACKAGE_NAME": "com.d4d.cetinler"
         }
     },
