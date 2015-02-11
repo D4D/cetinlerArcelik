@@ -44,8 +44,9 @@ var app = {
 
         console.log('Received Event: ' + id);
     },
+
     onDeviceReady: function() {
-        console.log('Javascript OK');
+        alert('Javascript OK');
         appState = "location";
 
         switch(appState) {
@@ -65,8 +66,12 @@ var app = {
             case 'post_activation':
                 this.appStatePstAct();
                 break;
-        }
+            default:
+                this.appStateLogin();
+            	break;
+        };
         app.receivedEvent('deviceready');
+    },
 
 
 //        foursquare.login('X2O4XENA0DKX3LVC3JUHFZZSG4VIIIQWVQVXO5P20FY4VYBQ', 'CAALY0YG4X04MJGLV0OP0AY0EWTPWT4JZWPJ4J14NNMLO0XC', 
@@ -86,7 +91,6 @@ var app = {
 
 
 
-    },
     initPushwoosh: function() {
         var pushNotification = window.plugins.pushNotification;
  
@@ -141,7 +145,33 @@ var app = {
     appStatePstAct: function() {
     },
 
+	tcKimlik: function(tcno){
+	// http://www.goktugozturk.com.tr/programlama/php-ve-soap-ile-tc-kimlik-numarasi-dogrulama/
+		TcNo = String(tcno);
+			 
+		bs1 = parseInt(TcNo.substr(0,1));
+		bs2 = parseInt(TcNo.substr(1,1));
+		bs3 = parseInt(TcNo.substr(2,1));
+		bs4 = parseInt(TcNo.substr(3,1));
+		bs5 = parseInt(TcNo.substr(4,1));
+		bs6 = parseInt(TcNo.substr(5,1));
+		bs7 = parseInt(TcNo.substr(6,1));
+		bs8 = parseInt(TcNo.substr(7,1));
+		bs9 = parseInt(TcNo.substr(8,1));
+		bs10 = parseInt(TcNo.substr(9,1));
+		bs11 = parseInt(TcNo.substr(10,1));
+ 
+		if( ( (bs1+bs3+bs5+bs7+bs9+bs2+bs4+bs6+bs8+bs10) % 10 != bs11 ) || 
+		( ( (bs1+bs3+bs5+bs7+bs9)*7 + (bs2+bs4+bs6+bs8)*9 ) % 10 != bs10 ) || 
+		( ( (bs1+bs3+bs5+bs7+bs9)*8) % 10 != bs11 ) ) {
+			return false;
+		}else{
+			return true;
+		}
+ 	},
+
     showMap: function() {
+    	alert('here and now!');
         navigator.geolocation.getCurrentPosition( function(position) {
             window.mapKit = new MapKit({
                 height: 640,
@@ -155,10 +185,8 @@ var app = {
         });
 
         var success = function() {
-alert(pins);
             mapKit.addMapPins(pins, function() {
                 console.log('adMapPins success');
-                document.getElementById('clear_map_pins').style.display = 'block';
             }, function() {
                 alert('error');
             });

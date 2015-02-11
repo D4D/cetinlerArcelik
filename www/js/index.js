@@ -44,8 +44,8 @@ var app = {
 
         console.log('Received Event: ' + id);
     },
+
     onDeviceReady: function() {
-        console.log('Javascript OK');
         appState = "location";
 
         switch(appState) {
@@ -65,8 +65,12 @@ var app = {
             case 'post_activation':
                 this.appStatePstAct();
                 break;
-        }
+            default:
+                this.appStateLogin();
+            	break;
+        };
         app.receivedEvent('deviceready');
+    },
 
 
 //        foursquare.login('X2O4XENA0DKX3LVC3JUHFZZSG4VIIIQWVQVXO5P20FY4VYBQ', 'CAALY0YG4X04MJGLV0OP0AY0EWTPWT4JZWPJ4J14NNMLO0XC', 
@@ -86,7 +90,6 @@ var app = {
 
 
 
-    },
     initPushwoosh: function() {
         var pushNotification = window.plugins.pushNotification;
  
@@ -141,11 +144,8 @@ var app = {
     appStatePstAct: function() {
     },
 
-	tcKimlik: function(){
+	tcKimlik: function(tcno){
 	// http://www.goktugozturk.com.tr/programlama/php-ve-soap-ile-tc-kimlik-numarasi-dogrulama/
-		var form = document.tcKontrolForm;
-		var toplam,tcno;
-		tcno = form.tckno.value;
 		TcNo = String(tcno);
 			 
 		bs1 = parseInt(TcNo.substr(0,1));
@@ -160,7 +160,9 @@ var app = {
 		bs10 = parseInt(TcNo.substr(9,1));
 		bs11 = parseInt(TcNo.substr(10,1));
  
-		if( (bs1+bs3+bs5+bs7+bs9+bs2+bs4+bs6+bs8+bs10) % 10 != bs11 ) || ( ( (bs1+bs3+bs5+bs7+bs9)*7 + (bs2+bs4+bs6+bs8)*9 ) % 10 != bs10 ) || ( ( (bs1+bs3+bs5+bs7+bs9)*8) % 10 != bs11 ) {
+		if( ( (bs1+bs3+bs5+bs7+bs9+bs2+bs4+bs6+bs8+bs10) % 10 != bs11 ) || 
+		( ( (bs1+bs3+bs5+bs7+bs9)*7 + (bs2+bs4+bs6+bs8)*9 ) % 10 != bs10 ) || 
+		( ( (bs1+bs3+bs5+bs7+bs9)*8) % 10 != bs11 ) ) {
 			return false;
 		}else{
 			return true;
@@ -183,7 +185,6 @@ var app = {
         var success = function() {
             mapKit.addMapPins(pins, function() {
                 console.log('adMapPins success');
-                document.getElementById('clear_map_pins').style.display = 'block';
             }, function() {
                 alert('error');
             });
