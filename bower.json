@@ -10,6 +10,13 @@
     "backbone.marionette": "~2.3.2",
     "lodash": "~3.1.0",
     "requirejs": "~2.1.16",
-    "requirejs-text": "~2.0.13"
+    "requirejs-text": "~2.0.13",
+    "backbone-websql": "*",
+    "jquery-mobile": "~1.4.5",
+    "isjs": "~0.4.1",
+    "jquery-Mustache": "~0.2.7",
+    "handlebars": "~3.0.0",
+    "jquery-handlebars": "~1.0.1",
+    "handlebars-helpers": "~2.0.0"
   }
 }

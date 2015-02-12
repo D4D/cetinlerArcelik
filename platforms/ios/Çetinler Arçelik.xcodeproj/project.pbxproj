@@ -50,6 +50,7 @@
 		BA5BF827264F425D9A573F9A /* MapKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 786892B43D21495AB377E5CD /* MapKit.m */; };
 		794C5D72D2D94BF8BAD09A2F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFA082028264DDF972CF0C2 /* icon.png */; };
 		D1D31E17D3D34041B0729FFE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8187D3963344CB9AFA43772 /* MapKit.framework */; };
+		A7E1104D0FFE46D6A64792FE /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC7A040795D4F82B60CD90B /* CDVStatusBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +131,8 @@
 		028223FE5FD541869F4085CC /* MapKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MapKit.h"; path = "com.phonegap.plugins.mapkit/MapKit.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		9EFA082028264DDF972CF0C2 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = "icon.png"; path = "icon.png"; sourceTree = "<group>"; fileEncoding = 4; };
 		D8187D3963344CB9AFA43772 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "MapKit.framework"; path = "System/Library/Frameworks/MapKit.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		8EC7A040795D4F82B60CD90B /* CDVStatusBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVStatusBar.m"; path = "org.apache.cordova.statusbar/CDVStatusBar.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		5D86E50320A048A29B6EDA3E /* CDVStatusBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVStatusBar.h"; path = "org.apache.cordova.statusbar/CDVStatusBar.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +252,8 @@
 				CB9E9D4DFBEA45A89D98701B /* AsyncImageView.h */,
 				7538FD68AAE04072B3900A6B /* CDVAnnotation.h */,
 				028223FE5FD541869F4085CC /* MapKit.h */,
+				8EC7A040795D4F82B60CD90B /* CDVStatusBar.m */,
+				5D86E50320A048A29B6EDA3E /* CDVStatusBar.h */,
 			);
 			name = Plugins;
 			path = "Çetinler Arçelik/Plugins";
@@ -438,6 +443,7 @@
 				12EEA616EB0147EAAB7B9D91 /* AsyncImageView.m in Sources */,
 				282DB261C04649C19B015B29 /* CDVAnnotation.m in Sources */,
 				BA5BF827264F425D9A573F9A /* MapKit.m in Sources */,
+				A7E1104D0FFE46D6A64792FE /* CDVStatusBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
