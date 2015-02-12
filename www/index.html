@@ -1,42 +1,72 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="msapplication-tap-highlight" content="no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Çetinler Arçelik</title>
-        <script type="text/javascript">
-        window.onerror = function(message, url, lineNumber) {
-            console.log("Error: "+message+" in "+url+" at line "+lineNumber);
-        }
-        </script>
-    </head>
-    <body>
-        <div class="app">
-            <h1>Çetinler Arçelik</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-<!--
-                <p><a href="#" class="btn" onclick="foursquare.login('X2O4XENA0DKX3LVC3JUHFZZSG4VIIIQWVQVXO5P20FY4VYBQ', 'CAALY0YG4X04MJGLV0OP0AY0EWTPWT4JZWPJ4J14NNMLO0XC', 'cordovasample://foursquare');">login to 4square</a></p>
-                <p><a href="#" class="btn" onclick="foursquare.install();">install 4square</a></p>
--->
-            </div>
-        </div>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="msapplication-tap-highlight" content="no" />
+		<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<title>Çetinler Arçelik</title>
+		<script type="text/javascript">
+		window.onerror = function(message, url, lineNumber) {
+			console.log("Error: "+message+" in "+url+" at line "+lineNumber);
+		}
+		</script>
+	</head>
+	<body>
 
-        <script type="text/javascript" src="http://127.0.0.1:8080/target/target-script-min.js#anonymous"></script>
-        <script type="text/javascript" src="bower_components/handlebars/handlebars.min.js"></script>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/MapKit.js"></script>
-        <script type="text/javascript" src="js/pins.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            var lc, appState;
-            var tpl = new Array();
-            app.initialize();
-        </script>
-    </body>
+		<script id="home-tpl" type="text/template">
+			<header class="bar bar-nav">
+				<h1 class="title">Directory</h1>
+			</header>
+			<div class="bar bar-standard bar-header-secondary">
+				<input class='search-key' type="search"/>
+			</div>
+			<div class="content"></div>
+		</script>
+
+		<script id="employee-list-tpl" type="text/template">
+			<ul class="table-view">
+        		{{#each this}}
+        		<li class="table-view-cell media">
+            		<a href="#employees/{{ id }}">
+                		<img class="media-object pull-left" src="assets/pics/{{pic}}">
+                		<div class="media-body">
+                    		{{firstName}} {{lastName}}
+                    		<p>{{title}}</p>
+                		</div>
+            		</a>
+        		</li>
+        		{{/each}}
+    		</ul>
+		</script>
+
+		<div class="app">
+			<h1>Çetinler Arçelik</h1>
+			<div id="deviceready" class="blink">
+				<p class="event listening">Connecting to Device</p>
+				<p class="event received">Device is Ready</p>
+<!--
+				<p><a href="#" class="btn" onclick="foursquare.login('X2O4XENA0DKX3LVC3JUHFZZSG4VIIIQWVQVXO5P20FY4VYBQ', 'CAALY0YG4X04MJGLV0OP0AY0EWTPWT4JZWPJ4J14NNMLO0XC', 'cordovasample://foursquare');">login to 4square</a></p>
+				<p><a href="#" class="btn" onclick="foursquare.install();">install 4square</a></p>
+-->
+			</div>
+		</div>
+
+		<script type="text/javascript" src="http://127.0.0.1:8080/target/target-script-min.js#anonymous"></script>
+		<script type="text/javascript">if(!window.jQuery){document.write('<script src="bower_components/jquery/jquery.min.js"><\/script>')}</script>
+		<script type="text/javascript" src="bower_components/jquery-mobile/js/jquery.mobile.js"></script>
+		<script type="text/javascript" src="bower_components/jquery-handlebars/js/functions/jquery.LoadFromTemplate.js"></script>
+		<script type="text/javascript" src="bower_components/handlebars/handlebars.min.js"></script>
+		<script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="js/MapKit.js"></script>
+		<script type="text/javascript" src="js/pins.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript">
+			var lc, appState;
+			var tpl = new Array();
+			app.initialize();
+		</script>
+	</body>
 </html>

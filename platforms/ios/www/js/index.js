@@ -46,7 +46,16 @@ var app = {
 
     onDeviceReady: function() {
 
+		StatusBar.overlaysWebView( false );
+		StatusBar.backgroundColorByHexString('#ffffff');
+		StatusBar.styleDefault();
+
         appState = "location";
+
+		var homeTpl = Handlebars.compile( $("#home-tpl").html() );
+		var employeeListTpl = Handlebars.compile( $("#employee-list-tpl").html() );
+		$('body').html( homeTpl() );
+
 //        this.loadTemplates();
 
 /* RENDERING
