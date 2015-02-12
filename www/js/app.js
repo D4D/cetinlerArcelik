@@ -7,6 +7,8 @@ var app = {
 		this.store = new MemoryStore(function() {
 			self.route();
     	});
+//		this.scanner = cordova.require("com.phonegap.plugins.barcodescanner.barcodescanner");
+//		this.pushNotification = window.plugins.pushNotification;
     },
     // Bind Event Listeners
     //
@@ -16,6 +18,7 @@ var app = {
         console.log('binding.');
 
 		$(window).on('hashchange', $.proxy(this.route, this));
+//		this.initPushwoosh();
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
     // deviceready Event Handler
@@ -41,20 +44,33 @@ var app = {
 	},
 
     onDeviceReady: function() {
+//		navigator.splashscreen.show();
 
 		StatusBar.overlaysWebView( false );
 		StatusBar.backgroundColorByHexString('#ffffff');
-		StatusBar.styleDefault();
+		StatusBar.styleLightContent();
+		StatusBar.hide();
 
         appState = "location";
 
+		var menuTpl = Handlebars.compile( $("#menu-view-tpl").html() );
 		var homeTpl = Handlebars.compile( $("#home-view-tpl").html() );
 		var employeeListTpl = Handlebars.compile( $("#location-view-tpl").html() );
 
 //		$('body').html( homeTpl() );
 
+/* NOT WORKING ON SIMULATOR??? 
+		this.scanner.scan( function (result) {
+			alert("We got a barcode\n" +
+					"Result: " + result.text + "\n" +
+					"Format: " + result.format + "\n" +
+					"Cancelled: " + result.cancelled);
+		}, function (error) {
+			alert("Scanning failed: " + error);
+		});
+*/
+
         switch(appState) {
-            default:
             case 'login':
                 this.appStateLogin();
                 break;
@@ -70,6 +86,9 @@ var app = {
                 break;
             case 'post_activation':
                 this.appStatePstAct();
+                break;
+            default:
+                this.appStateLogin();
                 break;
         }
         app.receivedEvent('deviceready');
@@ -91,10 +110,7 @@ var app = {
 
 //        var foursquare = new CC.CordovaFoursquare();
 
-
-
     initPushwoosh: function() {
-        var pushNotification = window.plugins.pushNotification;
  
         document.addEventListener('push-notification', function(event) {
             var notification = event.notification;
@@ -115,6 +131,7 @@ var app = {
             }
         );
         pushNotification.setApplicationIconBadgeNumber(0);
+
     },
 
     appStateLogin: function() {
