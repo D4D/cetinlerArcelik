@@ -17,6 +17,7 @@
     "jquery-Mustache": "~0.2.7",
     "handlebars": "~3.0.0",
     "jquery-handlebars": "~1.0.1",
-    "handlebars-helpers": "~2.0.0"
+    "handlebars-helpers": "~2.0.0",
+    "handlebars-layouts": "~1.1.0"
   }
 }

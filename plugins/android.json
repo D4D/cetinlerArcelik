@@ -9,11 +9,7 @@
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<feature name=\"LaunchNavigator\"><param name=\"android-package\" value=\"uk.co.workingedge.phonegap.plugin.LaunchNavigator\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"PushNotification\"><param name=\"android-package\" onload=\"true\" value=\"com.pushwoosh.plugin.pushnotifications.PushNotifications\" /></feature>",
+                            "xml": "<feature name=\"BarcodeScanner\"><param name=\"android-package\" value=\"com.phonegap.plugins.barcodescanner.BarcodeScanner\" /></feature>",
                             "count": 1
                         },
                         {
@@ -39,18 +35,6 @@
                         {
                             "xml": "<access origin=\"https://*.akamaihd.net\" />",
                             "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"StatusBar\"><param name=\"android-package\" value=\"org.apache.cordova.statusbar.StatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"BarcodeScanner\"><param name=\"android-package\" value=\"com.phonegap.plugins.barcodescanner.BarcodeScanner\" /></feature>",
-                            "count": 1
                         }
                     ],
                     "/widget": [
@@ -61,150 +45,9 @@
                     ]
                 }
             },
-            "res/values/facebookconnect.xml": {
-                "parents": {
-                    "/*": [
-                        {
-                            "xml": "<string name=\"fb_app_id\">1547196455520246</string>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<string name=\"fb_app_name\">Çetinler Arçelik</string>",
-                            "count": 1
-                        }
-                    ]
-                }
-            },
             "AndroidManifest.xml": {
                 "parents": {
-                    "application": [
-                        {
-                            "xml": "<meta-data android:name=\"com.facebook.sdk.ApplicationId\" android:value=\"@string/fb_app_id\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<activity android:label=\"@string/fb_app_name\" android:name=\"com.facebook.LoginActivity\" android:theme=\"@android:style/Theme.Translucent.NoTitleBar\" />",
-                            "count": 1
-                        }
-                    ],
-                    "/*": [
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
-                            "count": 1
-                        }
-                    ],
-                    "/*/application": [],
-                    "/manifest": [
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
-                            "count": 2
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.WAKE_LOCK\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
-                            "count": 2
-                        },
-                        {
-                            "xml": "<permission android:name=\"com.d4d.cetinler.permission.C2D_MESSAGE\" android:protectionLevel=\"signature\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"com.d4d.cetinler.permission.C2D_MESSAGE\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"com.google.android.c2dm.permission.RECEIVE\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<permission android:name=\"com.d4d.cetinler.permission.MAPS_RECEIVE\" android:protectionLevel=\"signature\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"com.d4d.cetinler.permission.MAPS_RECEIVE\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"com.google.android.providers.gsf.permission.READ_GSERVICES\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-feature android:glEsVersion=\"0x00020000\" android:required=\"true\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.CAMERA\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.FLASHLIGHT\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<uses-feature android:name=\"android.hardware.camera\" android:required=\"false\" />",
-                            "count": 1
-                        }
-                    ],
                     "/manifest/application": [
-                        {
-                            "xml": "<activity android:name=\"com.arellomobile.android.push.PushWebview\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<activity android:name=\"com.arellomobile.android.push.MessageActivity\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<activity android:name=\"com.arellomobile.android.push.PushHandlerActivity\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<activity android:label=\"@string/app_name\" android:name=\"com.facebook.LoginActivity\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<receiver android:name=\"com.google.android.gcm.GCMBroadcastReceiver\" android:permission=\"com.google.android.c2dm.permission.SEND\"><intent-filter><action android:name=\"com.google.android.c2dm.intent.RECEIVE\" /><action android:name=\"com.google.android.c2dm.intent.REGISTRATION\" /><category android:name=\"com.d4d.cetinler\" /></intent-filter></receiver>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<service android:name=\"com.arellomobile.android.push.PushGCMIntentService\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<service android:name=\"com.arellomobile.android.push.GeoLocationService\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<receiver android:name=\"com.arellomobile.android.push.AlarmReceiver\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<meta-data android:name=\"com.google.android.maps.v2.API_KEY\" android:value=\"AIzaSyD0qzvr5IIkSzAgx2v7_gmzhRwegAJ3ynw\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<meta-data android:name=\"com.google.android.gms.version\" android:value=\"@integer/google_play_services_version\" />",
-                            "count": 1
-                        },
                         {
                             "xml": "<activity android:clearTaskOnLaunch=\"true\" android:configChanges=\"orientation|keyboardHidden\" android:exported=\"false\" android:name=\"com.google.zxing.client.android.CaptureActivity\" android:screenOrientation=\"landscape\" android:theme=\"@android:style/Theme.Holo.NoActionBar.Fullscreen\" android:windowSoftInputMode=\"stateAlwaysHidden\"><intent-filter><action android:name=\"com.phonegap.plugins.barcodescanner.SCAN\" /><category android:name=\"android.intent.category.DEFAULT\" /></intent-filter></activity>",
                             "count": 1
@@ -216,26 +59,61 @@
                         {
                             "xml": "<activity android:label=\"@string/share_name\" android:name=\"com.google.zxing.client.android.HelpActivity\"><intent-filter><action android:name=\"android.intent.action.VIEW\" /><category android:name=\"android.intent.category.DEFAULT\" /></intent-filter></activity>",
                             "count": 1
-                        }
-                    ],
-                    "/manifest/application/activity": [
+                        },
                         {
-                            "xml": "<intent-filter><action android:name=\"com.d4d.cetinler.MESSAGE\" /><category android:name=\"android.intent.category.DEFAULT\" /></intent-filter>",
+                            "xml": "<meta-data android:name=\"com.google.android.maps.v2.API_KEY\" android:value=\"AIzaSyCBJ_A9RItayYogB6oGFxzcetDDUqvrf60\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<meta-data android:name=\"com.google.android.gms.version\" android:value=\"@integer/google_play_services_version\" />",
                             "count": 1
                         }
-                    ]
-                }
-            },
-            "config.xml": {
-                "parents": {
-                    "/*": []
-                }
-            },
-            "undefined": {
-                "parents": {
-                    "undefined": [
+                    ],
+                    "/manifest": [
                         {
-                            "xml": "<access origin=\"*.pushwoosh.com\" />",
+                            "xml": "<uses-permission android:name=\"android.permission.CAMERA\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.FLASHLIGHT\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-feature android:name=\"android.hardware.camera\" android:required=\"false\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<permission android:name=\"com.d4d.cetinler.permission.MAPS_RECEIVE\" android:protectionLevel=\"signature\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"com.d4d.cetinler.permission.MAPS_RECEIVE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"com.google.android.providers.gsf.permission.READ_GSERVICES\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-feature android:glEsVersion=\"0x00020000\" android:required=\"true\" />",
+                            "count": 1
+                        }
+                    ],
+                    "application": [
+                        {
+                            "xml": "<meta-data android:name=\"com.facebook.sdk.ApplicationId\" android:value=\"@string/fb_app_id\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<activity android:label=\"@string/fb_app_name\" android:name=\"com.facebook.LoginActivity\" android:theme=\"@android:style/Theme.Translucent.NoTitleBar\" />",
                             "count": 1
                         }
                     ]
@@ -722,24 +600,25 @@
                         }
                     ]
                 }
+            },
+            "res/values/facebookconnect.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<string name=\"fb_app_id\">1547196455520246</string>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<string name=\"fb_app_name\">Çetinler Arçelik</string>",
+                            "count": 1
+                        }
+                    ]
+                }
             }
         }
     },
     "installed_plugins": {
-        "uk.co.workingedge.phonegap.plugin.LaunchNavigator": {
-            "PACKAGE_NAME": "com.d4d.cetinler"
-        },
-        "com.pushwoosh.plugins.pushwoosh": {
-            "PACKAGE_NAME": "com.d4d.cetinler"
-        },
-        "org.apache.cordova.geolocation": {
-            "PACKAGE_NAME": "com.d4d.cetinler"
-        },
-        "com.phonegap.plugins.mapkit": {
-            "API_KEY": "AIzaSyD0qzvr5IIkSzAgx2v7_gmzhRwegAJ3ynw",
-            "PACKAGE_NAME": "com.d4d.cetinler"
-        },
-        "org.apache.cordova.console": {
+        "com.phonegap.plugins.barcodescanner": {
             "PACKAGE_NAME": "com.d4d.cetinler"
         },
         "com.phonegap.plugins.facebookconnect": {
@@ -747,13 +626,8 @@
             "APP_NAME": "Çetinler Arçelik",
             "PACKAGE_NAME": "com.d4d.cetinler"
         },
-        "org.apache.cordova.statusbar": {
-            "PACKAGE_NAME": "com.d4d.cetinler"
-        },
-        "org.apache.cordova.splashscreen": {
-            "PACKAGE_NAME": "com.d4d.cetinler"
-        },
-        "com.phonegap.plugins.barcodescanner": {
+        "com.phonegap.plugins.mapkit": {
+            "API_KEY": "AIzaSyCBJ_A9RItayYogB6oGFxzcetDDUqvrf60",
             "PACKAGE_NAME": "com.d4d.cetinler"
         }
     },

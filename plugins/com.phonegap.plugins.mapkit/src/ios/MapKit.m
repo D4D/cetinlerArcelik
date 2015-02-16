@@ -186,7 +186,7 @@
 }
 
 //Might need this later?
-- (void) mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+/*- (void) mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
     MKCoordinateRegion mapRegion;
     mapRegion.center = userLocation.coordinate;
@@ -210,7 +210,7 @@
     [self.webView stringByEvaluatingJavaScriptFromString:jsString];
     [jsString autorelease];
 }
- 
+ */
 
 
 - (MKAnnotationView *) mapView:(MKMapView *)theMapView viewForAnnotation:(id <MKAnnotation>) annotation {

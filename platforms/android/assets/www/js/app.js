@@ -2,12 +2,16 @@ var app = {
     // Application Constructor
     initialize: function() {
     	var self = this;
+		var Handlebars = require('handlebars');
+		require('handlebars-layouts')(Handlebars);
+
     	this.detailsURL = /^#location\/(\d{1,})/;
         this.bindEvents();
 		this.store = new MemoryStore(function() {
 			self.route();
     	});
-		var scanner = cordova.require("com.phonegap.plugins.barcodescanner.barcodescanner");
+//		this.scanner = cordova.require("com.phonegap.plugins.barcodescanner.barcodescanner");
+//		this.pushNotification = window.plugins.pushNotification;
     },
     // Bind Event Listeners
     //
@@ -17,6 +21,7 @@ var app = {
         console.log('binding.');
 
 		$(window).on('hashchange', $.proxy(this.route, this));
+//		this.initPushwoosh();
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
     // deviceready Event Handler
@@ -51,12 +56,15 @@ var app = {
 
         appState = "location";
 
+		Handlebars.registerPartial("menu", $("#menu-view-tpl").html());
+
 		var homeTpl = Handlebars.compile( $("#home-view-tpl").html() );
 		var employeeListTpl = Handlebars.compile( $("#location-view-tpl").html() );
 
 //		$('body').html( homeTpl() );
 
-		scanner.scan( function (result) {
+/* NOT WORKING ON SIMULATOR??? 
+		this.scanner.scan( function (result) {
 			alert("We got a barcode\n" +
 					"Result: " + result.text + "\n" +
 					"Format: " + result.format + "\n" +
@@ -64,9 +72,9 @@ var app = {
 		}, function (error) {
 			alert("Scanning failed: " + error);
 		});
+*/
 
         switch(appState) {
-            default:
             case 'login':
                 this.appStateLogin();
                 break;
@@ -82,6 +90,9 @@ var app = {
                 break;
             case 'post_activation':
                 this.appStatePstAct();
+                break;
+            default:
+                this.appStateLogin();
                 break;
         }
         app.receivedEvent('deviceready');
@@ -103,10 +114,7 @@ var app = {
 
 //        var foursquare = new CC.CordovaFoursquare();
 
-
-
     initPushwoosh: function() {
-        var pushNotification = window.plugins.pushNotification;
  
         document.addEventListener('push-notification', function(event) {
             var notification = event.notification;
@@ -127,6 +135,7 @@ var app = {
             }
         );
         pushNotification.setApplicationIconBadgeNumber(0);
+
     },
 
     appStateLogin: function() {

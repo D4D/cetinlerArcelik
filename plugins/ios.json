@@ -91,6 +91,26 @@
                 "parents": {
                     "/*": [
                         {
+                            "xml": "<feature name=\"StatusBar\"><param name=\"ios-package\" value=\"CDVStatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<preference name=\"StatusBarOverlaysWebView\" value=\"true\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<preference name=\"StatusBarStyle\" value=\"lightcontent\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"BarcodeScanner\"><param name=\"ios-package\" value=\"CDVBarcodeScanner\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"FacebookConnectPlugin\"><param name=\"ios-package\" value=\"FacebookConnectPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         },
@@ -121,26 +141,6 @@
                         {
                             "xml": "<feature name=\"MapKit\"><param name=\"ios-package\" value=\"MapKitView\" /></feature>",
                             "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"StatusBar\"><param name=\"ios-package\" value=\"CDVStatusBar\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<preference name=\"StatusBarOverlaysWebView\" value=\"true\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<preference name=\"StatusBarStyle\" value=\"lightcontent\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"BarcodeScanner\"><param name=\"ios-package\" value=\"CDVBarcodeScanner\" /></feature>",
-                            "count": 1
                         }
                     ]
                 }
@@ -170,14 +170,6 @@
         }
     },
     "installed_plugins": {
-        "com.phonegap.plugins.facebookconnect": {
-            "APP_ID": "1547196455520246",
-            "APP_NAME": "Çetinler Arçelik",
-            "PACKAGE_NAME": "com.d4d.cetinler"
-        },
-        "com.phonegap.plugins.mapkit": {
-            "PACKAGE_NAME": "com.d4d.cetinler"
-        },
         "org.apache.cordova.statusbar": {
             "PACKAGE_NAME": "com.d4d.cetinler"
         },
@@ -185,6 +177,14 @@
             "PACKAGE_NAME": "com.d4d.cetinler"
         },
         "com.phonegap.plugins.barcodescanner": {
+            "PACKAGE_NAME": "com.d4d.cetinler"
+        },
+        "com.phonegap.plugins.facebookconnect": {
+            "APP_ID": "1547196455520246",
+            "APP_NAME": "Çetinler Arçelik",
+            "PACKAGE_NAME": "com.d4d.cetinler"
+        },
+        "com.phonegap.plugins.mapkit": {
             "PACKAGE_NAME": "com.d4d.cetinler"
         }
     },

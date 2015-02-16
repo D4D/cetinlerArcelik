@@ -16,32 +16,6 @@
 	</head>
 	<body>
 
-		<script id="home-view-tpl" type="text/template" style="display:none;">
-			<header class="bar bar-nav">
-				<h1 class="title">Directory</h1>
-			</header>
-			<div class="bar bar-standard bar-header-secondary">
-				<input class='search-key' type="search"/>
-			</div>
-			<div class="content"></div>
-		</script>
-
-		<script id="location-view-tpl" type="text/template" style="display:none;">
-			<ul class="table-view">
-        		{{#each this}}
-        		<li class="table-view-cell media">
-            		<a href="#employees/{{ id }}">
-                		<img class="media-object pull-left" src="assets/pics/{{pic}}">
-                		<div class="media-body">
-                    		{{firstName}} {{lastName}}
-                    		<p>{{title}}</p>
-                		</div>
-            		</a>
-        		</li>
-        		{{/each}}
-    		</ul>
-		</script>
-
 		<div class="app">
 			<h1>Çetinler Arçelik</h1>
 			<div id="deviceready" class="blink">
@@ -59,6 +33,14 @@
 		<script type="text/javascript" src="bower_components/jquery-mobile/js/jquery.mobile.js"></script>
 		<script type="text/javascript" src="bower_components/jquery-handlebars/js/functions/jquery.LoadFromTemplate.js"></script>
 		<script type="text/javascript" src="bower_components/handlebars/handlebars.min.js"></script>
+		<script type="text/javascript" src="bower_components/handlebars-helpers/src/helpers.js"></script>
+		<script type="text/javascript" src="bower_components/handlebars-layouts/dist/handlebars-layouts.js"></script>		<!-- https://github.com/shannonmoeller/handlebars-layouts -->
+
+		<!-- BEGIN: JQuery- and -mobile based extras -->
+		<script src="bower_components/JQuery.mmenu/src/js/jquery.mmenu.min.js" type="text/javascript"></script>
+		<link href="bower_components/JQuery.mmenu/src/css/jquery.mmenu.css" type="text/css" rel="stylesheet" />
+		<!-- END: JQuery- and -mobile based extras -->
+
 		<script type="text/javascript" src="bower_components/fastclick/lib/fastclick.js"></script>
 		<script type="text/javascript" src="bower_components/PageSlider/pageslider.js"></script>
 		<script type="text/javascript" src="cordova.js"></script>
@@ -76,9 +58,61 @@
 		<script type="text/javascript" src="js/storage/memory-store.js"></script>
 		<script type="text/javascript" src="js/app.js"></script>
 		<script type="text/javascript">
-			var lc, appState;
-			var tpl = new Array();
-			app.initialize();
+			$(function(){
+				var lc, appState;
+				var tpl = new Array();
+				app.initialize();
+				$("#my-menu").mmenu({
+					// options
+				}, {
+					// configuration
+					offCanvas: {
+						pageNodetype: "section"
+					}
+				});
+			});
+		</script>
+
+		<!-- //======================================================================= -->
+		<!-- //=========================-t-e-m-p-l-a-t-e-s-=========================== -->
+		<!-- //======================================================================= -->
+
+		<!-- http://mmenu.frebsite.nl/tutorial/styling-lists.html -->
+		<script id="menu-view-tpl" type="text/template" style="display:none;">
+			<nav id="app-menu">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/about/">About us</a></li>
+					<li><a href="/contact/">Contact</a></li>
+				</ul>
+			</nav>
+		</script>
+		<!-- //======================================================================= -->
+		<script id="home-view-tpl" type="text/template" style="display:none;">
+			{{> menu}}
+			<header class="bar bar-nav">
+				<h1 class="title">Directory</h1>
+			</header>
+			<div class="bar bar-standard bar-header-secondary">
+				<input class='search-key' type="search"/>
+			</div>
+			<div class="content"></div>
+		</script>
+		<!-- //======================================================================= -->
+		<script id="location-view-tpl" type="text/template" style="display:none;">
+			<ul class="table-view">
+        		{{#each this}}
+        		<li class="table-view-cell media">
+            		<a href="#employees/{{ id }}">
+                		<img class="media-object pull-left" src="assets/pics/{{pic}}">
+                		<div class="media-body">
+                    		{{firstName}} {{lastName}}
+                    		<p>{{title}}</p>
+                		</div>
+            		</a>
+        		</li>
+        		{{/each}}
+    		</ul>
 		</script>
 	</body>
 </html>

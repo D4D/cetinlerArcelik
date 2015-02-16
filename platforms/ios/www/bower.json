@@ -26,6 +26,8 @@
     "fastclick": "~1.0.6",
     "PageSlider": "*",
     "slicknav": "~1.0.1",
-    "jQuery.mmenu": "~4.7.5"
+    "jQuery.mmenu": "~4.7.5",
+    "handlebars-layouts": "~1.1.0",
+    "circliful": "~0.1.5"
   }
 }

@@ -34,12 +34,17 @@
 		<script type="text/javascript" src="bower_components/jquery-handlebars/js/functions/jquery.LoadFromTemplate.js"></script>
 		<script type="text/javascript" src="bower_components/handlebars/handlebars.min.js"></script>
 		<script type="text/javascript" src="bower_components/handlebars-helpers/src/helpers.js"></script>
+		<script type="text/javascript" src="bower_components/handlebars-layouts/dist/handlebars-layouts.js"></script>		<!-- https://github.com/shannonmoeller/handlebars-layouts -->
 
 		<!-- BEGIN: JQuery- and -mobile based extras -->
-		<script src="bower_components/JQuery.mmenu/src/js/jquery.mmenu.min.js" type="text/javascript"></script>
-		<link href="bower_components/JQuery.mmenu/src/css/jquery.mmenu.css" type="text/css" rel="stylesheet" />
-		<!-- END: JQuery- and -mobile based extras -->
+		<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
 
+		<link href ="bower_components/JQuery.mmenu/src/css/jquery.mmenu.all.css" type="text/css" rel="stylesheet" />
+		<script src="bower_components/JQuery.mmenu/src/js/jquery.mmenu.min.all.js" type="text/javascript"></script>
+
+		<link href="bower_components/circliful/css/jquery.circliful.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="bower_components/circliful/js/jquery.circliful.min.js"></script>
+		<!-- END: JQuery- and -mobile based extras -->
 		<script type="text/javascript" src="bower_components/fastclick/lib/fastclick.js"></script>
 		<script type="text/javascript" src="bower_components/PageSlider/pageslider.js"></script>
 		<script type="text/javascript" src="cordova.js"></script>
@@ -61,14 +66,8 @@
 				var lc, appState;
 				var tpl = new Array();
 				app.initialize();
-				$("#my-menu").mmenu({
-					// options
-				}, {
-					// configuration
-					offCanvas: {
-						pageNodetype: "section"
-					}
-				});
+				$("#appMenu").mmenu({});
+				$('#gprsStat').circliful();
 			});
 		</script>
 
@@ -78,23 +77,34 @@
 
 		<!-- http://mmenu.frebsite.nl/tutorial/styling-lists.html -->
 		<script id="menu-view-tpl" type="text/template" style="display:none;">
-			<nav id="app-menu">
+			<nav id="appMenu">
 				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="/about/">About us</a></li>
-					<li><a href="/contact/">Contact</a></li>
+					<li><a href="javascript:app.appStateLogin();">Giriş</a></li>
+					<li><a href="javascript:app.appStateLocation();">En yakın Çetinler</a></li>
+					<li><a href="/status">Kotanız</a></li>
+					<li><a href="/user">Bilgileriniz</a></li>
 				</ul>
 			</nav>
 		</script>
 		<!-- //======================================================================= -->
 		<script id="home-view-tpl" type="text/template" style="display:none;">
 			{{> menu}}
-			<header class="bar bar-nav">
-				<h1 class="title">Directory</h1>
-			</header>
-			<div class="bar bar-standard bar-header-secondary">
-				<input class='search-key' type="search"/>
-			</div>
+			<div id="gprsStat" 
+								data-dimension="250" 
+								data-text="35%" 
+								data-info="kalan data paketiniz" 
+								data-width="30" 
+								data-fontsize="38" 
+								data-percent="35" 
+								data-fgcolor="#61a9dc" 
+								data-bgcolor="#eee" 
+								data-fill="#ddd" 
+								data-total="200" 
+								data-part="35" 
+								data-icon="long-arrow-up" 
+								data-icon-size="28" 
+								data-icon-color="#fff"></div>
+
 			<div class="content"></div>
 		</script>
 		<!-- //======================================================================= -->
@@ -112,6 +122,21 @@
         		</li>
         		{{/each}}
     		</ul>
+		</script>
+		<!-- //======================================================================= -->
+		<script id="status-view-tpl" type="text/template" style="display:none;">
+			{{> menu}}
+			<div class="content"></div>
+		</script>
+		<!-- //======================================================================= -->
+		<script id="preAct-view-tpl" type="text/template" style="display:none;">
+			{{> menu}}
+			<div class="content"></div>
+		</script>
+		<!-- //======================================================================= -->
+		<script id="pstAct-view-tpl" type="text/template" style="display:none;">
+			{{> menu}}
+			<div class="content"></div>
 		</script>
 	</body>
 </html>

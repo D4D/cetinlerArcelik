@@ -43,7 +43,45 @@ var app = {
 		}
 	},
 
-    onDeviceReady: function() {
+    appStateLogin: function() {
+		var homeTpl = Handlebars.compile( $("#home-view-tpl").html() );
+		$('body').html( homeTpl({}) );
+    },
+
+    appStateLocation: function() {
+        navigator.geolocation.getCurrentPosition( function(position) {
+            launchnavigator.navigateByLatLon(position.coords.latitude, position.coords.longitude, function () {
+              alert("success...∏");
+            }, function (error) {
+                alert("" + error);
+            });
+
+        }, function (e) {
+            var msgText = "Geolocation error: #" + e.code + "\n" + e.message;
+            console.log(msgText);
+            alert(msgText);
+        }, {
+            timeout : 5000,
+            enableHighAccuracy : true
+        });
+    },
+
+    appStateStatus: function() {
+		var statusTpl = Handlebars.compile( $("#status-view-tpl").html() );
+		$('body').html( statusTpl({}) );
+    },
+
+    appStatePreAct: function() {
+		var preActTpl = Handlebars.compile( $("#preAct-view-tpl").html() );
+		$('body').html( preActTpl({}) );
+    },
+
+    appStatePstAct: function() {
+		var pstActTpl = Handlebars.compile( $("#pstAct-view-tpl").html() );
+		$('body').html( preActTpl({}) );
+    },
+
+	onDeviceReady: function() {
 //		navigator.splashscreen.show();
 
 		StatusBar.overlaysWebView( false );
@@ -51,12 +89,12 @@ var app = {
 		StatusBar.styleLightContent();
 		StatusBar.hide();
 
-        appState = "location";
+        appState = "login";
 
-		var menuTpl = Handlebars.compile( $("#menu-view-tpl").html() );
+		Handlebars.registerPartial("menu", $("#menu-view-tpl").html());
+
 		var homeTpl = Handlebars.compile( $("#home-view-tpl").html() );
 		var employeeListTpl = Handlebars.compile( $("#location-view-tpl").html() );
-
 //		$('body').html( homeTpl() );
 
 /* NOT WORKING ON SIMULATOR??? 
@@ -72,23 +110,23 @@ var app = {
 
         switch(appState) {
             case 'login':
-                this.appStateLogin();
+            	app.appStateLogin();
                 break;
             case 'location':
                 app.showMap();
 //                this.appStateLocation();
                 break;
             case 'status':
-                this.appStateStatus();
+                app.appStateStatus();
                 break;
             case 'pre_activation':
-                this.appStatePreAct();
+                app.appStatePreAct();
                 break;
             case 'post_activation':
-                this.appStatePstAct();
+                app.appStatePstAct();
                 break;
             default:
-                this.appStateLogin();
+                app.appStateLogin();
                 break;
         }
         app.receivedEvent('deviceready');
@@ -134,52 +172,23 @@ var app = {
 
     },
 
-    appStateLogin: function() {
 
-    },
-
-    appStateLocation: function() {
-        navigator.geolocation.getCurrentPosition( function(position) {
-            launchnavigator.navigateByLatLon(position.coords.latitude, position.coords.longitude, function () {
-              alert("success...∏");
-            }, function (error) {
-                alert("" + error);
-            });
-
-        }, function (e) {
-            var msgText = "Geolocation error: #" + e.code + "\n" + e.message;
-            console.log(msgText);
-            alert(msgText);
-        }, {
-            timeout : 5000,
-            enableHighAccuracy : true
-        });
-    },
-
-    appStateStatus: function() {
-    },
-
-    appStatePreAct: function() {
-    },
-
-    appStatePstAct: function() {
-    },
 
 	tcKimlik: function(tcno){
 	// http://www.goktugozturk.com.tr/programlama/php-ve-soap-ile-tc-kimlik-numarasi-dogrulama/
 		TcNo = String(tcno);
 			 
-		bs1 = parseInt(TcNo.substr(0,1));
-		bs2 = parseInt(TcNo.substr(1,1));
-		bs3 = parseInt(TcNo.substr(2,1));
-		bs4 = parseInt(TcNo.substr(3,1));
-		bs5 = parseInt(TcNo.substr(4,1));
-		bs6 = parseInt(TcNo.substr(5,1));
-		bs7 = parseInt(TcNo.substr(6,1));
-		bs8 = parseInt(TcNo.substr(7,1));
-		bs9 = parseInt(TcNo.substr(8,1));
-		bs10 = parseInt(TcNo.substr(9,1));
-		bs11 = parseInt(TcNo.substr(10,1));
+		bs1 = parseInt(TcNo.substr(0,1),10);
+		bs2 = parseInt(TcNo.substr(1,1),10);
+		bs3 = parseInt(TcNo.substr(2,1),10);
+		bs4 = parseInt(TcNo.substr(3,1),10);
+		bs5 = parseInt(TcNo.substr(4,1),10);
+		bs6 = parseInt(TcNo.substr(5,1),10);
+		bs7 = parseInt(TcNo.substr(6,1),10);
+		bs8 = parseInt(TcNo.substr(7,1),10);
+		bs9 = parseInt(TcNo.substr(8,1),10);
+		bs10 = parseInt(TcNo.substr(9,1),10);
+		bs11 = parseInt(TcNo.substr(10,1),10);
  
 		if( ( (bs1+bs3+bs5+bs7+bs9+bs2+bs4+bs6+bs8+bs10) % 10 != bs11 ) || 
 		( ( (bs1+bs3+bs5+bs7+bs9)*7 + (bs2+bs4+bs6+bs8)*9 ) % 10 != bs10 ) || 
