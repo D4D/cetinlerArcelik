@@ -8,7 +8,7 @@ var HomeView = function (service) {
 
 	this.render = function() {
 //		alert('homeView render');
-		this.$el.html( this.template() );
+		this.$el.html( app.templates.home() );
 		$('.content', this.$el).html();
 		alert('homeView rendered');
 		return this;

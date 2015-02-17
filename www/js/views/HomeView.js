@@ -1,14 +1,14 @@
 var HomeView = function (service) {
 
 	this.initialize = function () {
-		alert('homeView init');
+//		alert('homeView init');
         this.$el = $('<div/>');
         this.render();
     };
 
 	this.render = function() {
 //		alert('homeView render');
-		this.$el.html( this.template() );
+		this.$el.html( app.templates.home() );
 		$('.content', this.$el).html();
 		alert('homeView rendered');
 		return this;
@@ -16,4 +16,3 @@ var HomeView = function (service) {
 
     this.initialize();
 }
-HomeView.prototype.template = Handlebars.compile( $("#home-view-tpl").html() );

@@ -11,12 +11,10 @@ var app = {
 
     initialize: function() {
     	var self = this;
-    	this.detailsURL = /^#location\/(\d{1,})/;
         this.bindEvents();
 		this.store = new MemoryStore(function() {
 			self.route();
     	});
-//		SessionView.prototype.template = Handlebars.compile($("#session-tpl").html());
 
 		app.templates.home = 		Handlebars.compile( $("#home-view-tpl").html() );
 		app.templates.status = 		Handlebars.compile( $("#status-view-tpl").html() );
@@ -26,46 +24,23 @@ var app = {
 
 		this.initRoutes();
 
-//		this.scanner = cordova.require("com.phonegap.plugins.barcodescanner.barcodescanner");
-//		this.pushNotification = window.plugins.pushNotification;
     },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
+
     bindEvents: function() {
         console.log('binding.');
 
 		$(window).on('hashchange', $.proxy(this.route, this));
-//		this.initPushwoosh();
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicitly call 'app.receivedEvent(...);'
+
     receivedEvent: function(id) {
         console.log('Received Event: ' + id);
     },
 
 	initRoutes: function() {
-/*
-		var hash = window.location.hash;
-		if (!hash) {
-			$('#app').html(new HomeView(this.store).render().el);
-			return;
-		}
-		var match = hash.match(app.detailsURL);
-		if (match) {
-			this.store.findById( Number(match[1] ), function(employee) {
-				$('#app').html(new LocationView(employee).render().el);
-			});
-		}
-*/
+
 		var service = new CampaignService();
-
 		service.initialize().done(function () {
-
 			$('#app').html(new HomeView(service).render().$el);
 
 //			router.addRoute('', 			function() { $('#app').html(new HomeView(service).render().$el); });
@@ -78,6 +53,7 @@ var app = {
 
     appStateLogin: function() {
 		$('#app').html( app.templates.home({}) );
+		$("#appMenu").mmenu();
     },
 
     appStateLocation: function() {
@@ -101,14 +77,17 @@ var app = {
 
     appStateStatus: function() {
 		$('#app').html( app.templates.status({}) );
+		$("#appMenu").mmenu();
     },
 
     appStatePreAct: function() {
 		$('#app').html( app.templates.preAct({}) );
+		$("#appMenu").mmenu();
     },
 
     appStatePstAct: function() {
 		$('#app').html( app.templates.postAct({}) );
+		$("#appMenu").mmenu();
     },
 
     appStateCampaigns: function() {
@@ -149,19 +128,6 @@ var app = {
         appState = "login";
 
 		Handlebars.registerPartial("menu", $("#menu-view-tpl").html());
-
-//		$('app').html( homeTpl() );
-
-/* NOT WORKING ON SIMULATOR??? 
-		this.scanner.scan( function (result) {
-			alert("We got a barcode\n" +
-					"Result: " + result.text + "\n" +
-					"Format: " + result.format + "\n" +
-					"Cancelled: " + result.cancelled);
-		}, function (error) {
-			alert("Scanning failed: " + error);
-		});
-*/
 
         switch(appState) {
             case 'login':
@@ -229,8 +195,6 @@ var app = {
         pushNotification.setApplicationIconBadgeNumber(0);
 
     },
-
-
 
 	tcKimlik: function(tcno){
 	// http://www.goktugozturk.com.tr/programlama/php-ve-soap-ile-tc-kimlik-numarasi-dogrulama/
