@@ -34,6 +34,13 @@ module.exports = [
         "clobbers": [
             "plugin.mapKit"
         ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.dialogs/www/notification.js",
+        "id": "org.apache.cordova.dialogs.notification",
+        "merges": [
+            "navigator.notification"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -43,7 +50,8 @@ module.exports.metadata =
     "org.apache.cordova.splashscreen": "0.3.5",
     "com.phonegap.plugins.barcodescanner": "0.6.0",
     "com.phonegap.plugins.facebookconnect": "0.11.0",
-    "com.phonegap.plugins.mapkit": "0.9.3"
+    "com.phonegap.plugins.mapkit": "0.9.3",
+    "org.apache.cordova.dialogs": "0.3.0"
 }
 // BOTTOM OF METADATA
 });

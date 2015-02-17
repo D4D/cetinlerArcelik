@@ -1,14 +1,19 @@
 var HomeView = function (service) {
 
 	this.initialize = function () {
+		alert('homeView init');
         this.$el = $('<div/>');
+        this.render();
     };
 
 	this.render = function() {
-		this.$el.html( this.template(employee) );
+//		alert('homeView render');
+		this.$el.html( this.template() );
+		$('.content', this.$el).html();
+		alert('homeView rendered');
 		return this;
     };
 
     this.initialize();
 }
-HomeView.template = Handlebars.compile( $("#home-view-tpl").html() );
+HomeView.prototype.template = Handlebars.compile( $("#home-view-tpl").html() );

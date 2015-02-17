@@ -35,6 +35,10 @@
                         {
                             "xml": "<access origin=\"https://*.akamaihd.net\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Notification\"><param name=\"android-package\" value=\"org.apache.cordova.dialogs.Notification\" /></feature>",
+                            "count": 1
                         }
                     ],
                     "/widget": [
@@ -628,6 +632,9 @@
         },
         "com.phonegap.plugins.mapkit": {
             "API_KEY": "AIzaSyCBJ_A9RItayYogB6oGFxzcetDDUqvrf60",
+            "PACKAGE_NAME": "com.d4d.cetinler"
+        },
+        "org.apache.cordova.dialogs": {
             "PACKAGE_NAME": "com.d4d.cetinler"
         }
     },

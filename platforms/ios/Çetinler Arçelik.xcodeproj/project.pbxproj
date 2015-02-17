@@ -63,6 +63,8 @@
 		580FE6509ACE47189548CFCA /* MapKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8E28AA3F6F49C2A10A19F3 /* MapKit.m */; };
 		E24FF43FC0F7484AAD26DF28 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 843E33937F724BE29F82E69E /* icon.png */; };
 		FC283FFD07644ED4B5DF3EDE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43C7BA8EF2AA476BA104670C /* MapKit.framework */; };
+		31CC1DE3C1AD4A09893F829C /* CDVNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 5279774785144AA9BC329971 /* CDVNotification.m */; };
+		6E9E641F83254A6896C12D40 /* CDVNotification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FC9CA1105DAB43B6A97C817D /* CDVNotification.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +165,9 @@
 		7BE6FA4A479E4EC083140BAA /* MapKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MapKit.h"; path = "com.phonegap.plugins.mapkit/MapKit.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		843E33937F724BE29F82E69E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = unknown; name = "icon.png"; path = "icon.png"; sourceTree = "<group>"; fileEncoding = 4; };
 		43C7BA8EF2AA476BA104670C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "MapKit.framework"; path = "System/Library/Frameworks/MapKit.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		5279774785144AA9BC329971 /* CDVNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVNotification.m"; path = "org.apache.cordova.dialogs/CDVNotification.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		F961E97414B940178B4D95AA /* CDVNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVNotification.h"; path = "org.apache.cordova.dialogs/CDVNotification.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		FC9CA1105DAB43B6A97C817D /* CDVNotification.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "CDVNotification.bundle"; path = "CDVNotification.bundle"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +256,7 @@
 				461AAFF40FB04EE0A65049FC /* beep-beep.aiff */,
 				CB1A0574C8BF4CF6A5AED540 /* empty.cpp */,
 				843E33937F724BE29F82E69E /* icon.png */,
+				FC9CA1105DAB43B6A97C817D /* CDVNotification.bundle */,
 			);
 			name = Resources;
 			path = "Çetinler Arçelik/Resources";
@@ -309,6 +315,8 @@
 				BF8D3CB0E09243BA9107B7B4 /* AsyncImageView.h */,
 				724707B4F66546FFBA2F07FF /* CDVAnnotation.h */,
 				7BE6FA4A479E4EC083140BAA /* MapKit.h */,
+				5279774785144AA9BC329971 /* CDVNotification.m */,
+				F961E97414B940178B4D95AA /* CDVNotification.h */,
 			);
 			name = Plugins;
 			path = "Çetinler Arçelik/Plugins";
@@ -465,6 +473,7 @@
 				FEDFB90E59A44AD0A6D1F02D /* beep-beep.aiff in Resources */,
 				2967297851994FAE8C102164 /* empty.cpp in Resources */,
 				E24FF43FC0F7484AAD26DF28 /* icon.png in Resources */,
+				6E9E641F83254A6896C12D40 /* CDVNotification.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +514,7 @@
 				1D5DBAC2BE894B018B07F993 /* AsyncImageView.m in Sources */,
 				514475F72087491AB7C6442B /* CDVAnnotation.m in Sources */,
 				580FE6509ACE47189548CFCA /* MapKit.m in Sources */,
+				31CC1DE3C1AD4A09893F829C /* CDVNotification.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

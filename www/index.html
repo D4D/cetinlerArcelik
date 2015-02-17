@@ -6,7 +6,9 @@
 		<meta name="msapplication-tap-highlight" content="no" />
 		<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
 		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
 		<link rel="stylesheet" type="text/css" href="css/index.css" />
+
 		<title>Çetinler Arçelik</title>
 		<script type="text/javascript">
 		window.onerror = function(message, url, lineNumber) {
@@ -16,7 +18,7 @@
 	</head>
 	<body>
 
-		<div class="app">
+		<div id="app">
 			<h1>Çetinler Arçelik</h1>
 			<div id="deviceready" class="blink">
 				<p class="event listening">Connecting to Device</p>
@@ -31,17 +33,17 @@
 		<script type="text/javascript" src="http://127.0.0.1:8080/target/target-script-min.js#anonymous"></script>
 		<script type="text/javascript">if(!window.jQuery){document.write('<script src="bower_components/jquery/jquery.min.js"><\/script>')}</script>
 		<script type="text/javascript" src="bower_components/jquery-mobile/js/jquery.mobile.js"></script>
+		<script type="text/javascript" src="bower_components/jsonp/jsonp.js"></script>
 		<script type="text/javascript" src="bower_components/jquery-handlebars/js/functions/jquery.LoadFromTemplate.js"></script>
+		<script type="text/javascript" src="bower_components/fastclick/lib/fastclick.min.js"></script>
 		<script type="text/javascript" src="bower_components/handlebars/handlebars.min.js"></script>
 		<script type="text/javascript" src="bower_components/handlebars-helpers/src/helpers.js"></script>
 		<script type="text/javascript" src="bower_components/handlebars-layouts/dist/handlebars-layouts.js"></script>		<!-- https://github.com/shannonmoeller/handlebars-layouts -->
 
+		<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
 		<!-- BEGIN: JQuery- and -mobile based extras -->
-		<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
-
 		<link href ="bower_components/JQuery.mmenu/src/css/jquery.mmenu.all.css" type="text/css" rel="stylesheet" />
 		<script src="bower_components/JQuery.mmenu/src/js/jquery.mmenu.min.all.js" type="text/javascript"></script>
-
 		<link href="bower_components/circliful/css/jquery.circliful.css" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" src="bower_components/circliful/js/jquery.circliful.min.js"></script>
 		<!-- END: JQuery- and -mobile based extras -->
@@ -51,14 +53,21 @@
 
 		<!-- BEGIN: load app specific libs -->
 		<script type="text/javascript" src="js/lib/router.js"></script>
+		<script type="text/javascript" src="js/lib/SessionView.js"></script>
 		<script type="text/javascript" src="js/lib/MapKit.js"></script>
+
+		<script type="text/javascript" src="js/views/HomeView.js"></script>
 		<!-- END: end of loading views --> 
 
 		<script type="text/javascript" src="js/pins.js"></script>
+
+		<script type="text/javascript" src="js/services/CampaignService.js"></script>
 		<!-- BEGIN: load the views -->
-		<script type="text/javascript" src="js/HomeView.js"></script>
-		<script type="text/javascript" src="js/LocationView.js"></script>
+		<script type="text/javascript" src="js/views/HomeView.js"></script>
+		<script type="text/javascript" src="js/views/CampaignView.js"></script>
+		<script type="text/javascript" src="js/views/LocationView.js"></script>
 		<!-- END: end of loading views --> 
+
 		<script type="text/javascript" src="js/storage/memory-store.js"></script>
 		<script type="text/javascript" src="js/app.js"></script>
 		<script type="text/javascript">
@@ -66,7 +75,8 @@
 				var lc, appState;
 				var tpl = new Array();
 				app.initialize();
-				$("#appMenu").mmenu({});
+				FastClick.attach(document.body);
+				$("#appMenu").mmenu();
 				$('#gprsStat').circliful();
 			});
 		</script>
@@ -81,6 +91,7 @@
 				<ul>
 					<li><a href="javascript:app.appStateLogin();">Giriş</a></li>
 					<li><a href="javascript:app.appStateLocation();">En yakın Çetinler</a></li>
+					<li><a href="#campaigns">Kampanyalar</a></li>
 					<li><a href="/status">Kotanız</a></li>
 					<li><a href="/user">Bilgileriniz</a></li>
 				</ul>
@@ -89,7 +100,18 @@
 		<!-- //======================================================================= -->
 		<script id="home-view-tpl" type="text/template" style="display:none;">
 			{{> menu}}
-			<div id="gprsStat" 
+			<div class="content"></div>
+		</script>
+		<!-- //======================================================================= -->
+		<script id="location-view-tpl" type="text/template" style="display:none;">
+			{{> menu}}
+			<div class="content"></div>
+		</script>
+		<!-- //======================================================================= -->
+		<script id="status-view-tpl" type="text/template" style="display:none;">
+			{{> menu}}
+			<div class="content">
+				<div id="gprsStat" 
 								data-dimension="250" 
 								data-text="35%" 
 								data-info="kalan data paketiniz" 
@@ -105,28 +127,26 @@
 								data-icon-size="28" 
 								data-icon-color="#fff"></div>
 
-			<div class="content"></div>
+			</div>
 		</script>
 		<!-- //======================================================================= -->
-		<script id="location-view-tpl" type="text/template" style="display:none;">
-			<ul class="table-view">
-        		{{#each this}}
-        		<li class="table-view-cell media">
-            		<a href="#employees/{{ id }}">
-                		<img class="media-object pull-left" src="assets/pics/{{pic}}">
-                		<div class="media-body">
-                    		{{firstName}} {{lastName}}
-                    		<p>{{title}}</p>
-                		</div>
-            		</a>
-        		</li>
-        		{{/each}}
-    		</ul>
-		</script>
-		<!-- //======================================================================= -->
-		<script id="status-view-tpl" type="text/template" style="display:none;">
+		<script id="campaign-view-tpl" type="text/template" style="display:none;">
 			{{> menu}}
-			<div class="content"></div>
+			<div class="content">
+				<ul class="table-view">
+					{{#each this}}
+					<li class="table-view-cell media">
+						<a href="#employees/{{ id }}">
+							<img class="media-object pull-left" src="assets/pics/{{pic}}">
+							<div class="media-body">
+								{{firstName}} {{lastName}}
+								<p>{{title}}</p>
+							</div>
+						</a>
+					</li>
+					{{/each}}
+				</ul>
+			</div>
 		</script>
 		<!-- //======================================================================= -->
 		<script id="preAct-view-tpl" type="text/template" style="display:none;">

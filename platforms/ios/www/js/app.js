@@ -1,5 +1,14 @@
 var app = {
     // Application Constructor
+
+    templates: {
+    	home: 		{},
+    	status: 	{},
+    	preAct: 	{},
+    	postAct: 	{},
+    	campaigns: 	{}
+    },
+
     initialize: function() {
     	var self = this;
     	this.detailsURL = /^#location\/(\d{1,})/;
@@ -7,6 +16,16 @@ var app = {
 		this.store = new MemoryStore(function() {
 			self.route();
     	});
+//		SessionView.prototype.template = Handlebars.compile($("#session-tpl").html());
+
+		app.templates.home = 		Handlebars.compile( $("#home-view-tpl").html() );
+		app.templates.status = 		Handlebars.compile( $("#status-view-tpl").html() );
+		app.templates.preAct = 		Handlebars.compile( $("#preAct-view-tpl").html() );
+		app.templates.postAct = 	Handlebars.compile( $("#pstAct-view-tpl").html() );
+		app.templates.campaigns = 	Handlebars.compile( $("#campaign-view-tpl").html() );
+
+		this.initRoutes();
+
 //		this.scanner = cordova.require("com.phonegap.plugins.barcodescanner.barcodescanner");
 //		this.pushNotification = window.plugins.pushNotification;
     },
@@ -29,26 +48,40 @@ var app = {
         console.log('Received Event: ' + id);
     },
 
-	route: function() {
+	initRoutes: function() {
+/*
 		var hash = window.location.hash;
 		if (!hash) {
-			$('body').html(new HomeView(this.store).render().el);
+			$('#app').html(new HomeView(this.store).render().el);
 			return;
 		}
 		var match = hash.match(app.detailsURL);
 		if (match) {
 			this.store.findById( Number(match[1] ), function(employee) {
-				$('body').html(new LocationView(employee).render().el);
+				$('#app').html(new LocationView(employee).render().el);
 			});
 		}
+*/
+		var service = new CampaignService();
+
+		service.initialize().done(function () {
+
+			$('#app').html(new HomeView(service).render().$el);
+
+//			router.addRoute('', 			function() { $('#app').html(new HomeView(service).render().$el); });
+//			router.addRoute('login', 		function() { $('#app').html(new HomeView(service).render().$el); });
+//			router.addRoute('campaigns', 	function() { $('#app').html(new CampaignView(service).render().$el); });
+
+//			router.start();
+		});
 	},
 
     appStateLogin: function() {
-		var homeTpl = Handlebars.compile( $("#home-view-tpl").html() );
-		$('body').html( homeTpl({}) );
+		$('#app').html( app.templates.home({}) );
     },
 
     appStateLocation: function() {
+    	alert('location called');
         navigator.geolocation.getCurrentPosition( function(position) {
             launchnavigator.navigateByLatLon(position.coords.latitude, position.coords.longitude, function () {
               alert("success...∏");
@@ -67,18 +100,40 @@ var app = {
     },
 
     appStateStatus: function() {
-		var statusTpl = Handlebars.compile( $("#status-view-tpl").html() );
-		$('body').html( statusTpl({}) );
+		$('#app').html( app.templates.status({}) );
     },
 
     appStatePreAct: function() {
-		var preActTpl = Handlebars.compile( $("#preAct-view-tpl").html() );
-		$('body').html( preActTpl({}) );
+		$('#app').html( app.templates.preAct({}) );
     },
 
     appStatePstAct: function() {
-		var pstActTpl = Handlebars.compile( $("#pstAct-view-tpl").html() );
-		$('body').html( preActTpl({}) );
+		$('#app').html( app.templates.postAct({}) );
+    },
+
+    appStateCampaigns: function() {
+
+		$.jsonp({
+//			url: 'http://twitter.com/status/user_timeline/samcroft.json?count=20',
+			url: 'staticdata/campaigns.json',
+			callbackParameter: 'callback',
+			success: function(data, status) {
+
+				$('#app').html( app.templates.campaigns( {content: data} ) );
+/*
+				$.each(data, function(i,item){ 
+					var tweet = item.text;
+					$('#your-tweets').append('<li>'+tweet);
+				});
+*/
+			},
+			error: function(){
+				$('#app').html('<div>There was an error loading the feed');
+			}
+		});
+
+		var campaignTpl = Handlebars.compile( $("#campaign-view-tpl").html() );
+		$('#app').html( app.templates.campaigns({}) );
     },
 
 	onDeviceReady: function() {
@@ -89,13 +144,13 @@ var app = {
 		StatusBar.styleLightContent();
 		StatusBar.hide();
 
+		FastClick.attach(document.body);
+
         appState = "login";
 
 		Handlebars.registerPartial("menu", $("#menu-view-tpl").html());
 
-		var homeTpl = Handlebars.compile( $("#home-view-tpl").html() );
-		var employeeListTpl = Handlebars.compile( $("#location-view-tpl").html() );
-//		$('body').html( homeTpl() );
+//		$('app').html( homeTpl() );
 
 /* NOT WORKING ON SIMULATOR??? 
 		this.scanner.scan( function (result) {
@@ -124,6 +179,9 @@ var app = {
                 break;
             case 'post_activation':
                 app.appStatePstAct();
+                break;
+            case 'campaigns':
+                app.appStateCampaigns();
                 break;
             default:
                 app.appStateLogin();

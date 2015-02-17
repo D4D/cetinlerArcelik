@@ -28,6 +28,9 @@
     "slicknav": "~1.0.1",
     "jQuery.mmenu": "~4.7.5",
     "handlebars-layouts": "~1.1.0",
-    "circliful": "~0.1.5"
+    "circliful": "~0.1.5",
+    "font-awesome": "~4.3.0",
+    "pre-loader": "~0.4.0",
+    "jsonp": "~0.0.1"
   }
 }

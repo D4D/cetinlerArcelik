@@ -83,6 +83,10 @@
                         {
                             "xml": "false",
                             "count": 1
+                        },
+                        {
+                            "xml": "true",
+                            "count": 1
                         }
                     ]
                 }
@@ -141,6 +145,10 @@
                         {
                             "xml": "<feature name=\"MapKit\"><param name=\"ios-package\" value=\"MapKitView\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Notification\"><param name=\"ios-package\" value=\"CDVNotification\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -185,6 +193,9 @@
             "PACKAGE_NAME": "com.d4d.cetinler"
         },
         "com.phonegap.plugins.mapkit": {
+            "PACKAGE_NAME": "com.d4d.cetinler"
+        },
+        "org.apache.cordova.dialogs": {
             "PACKAGE_NAME": "com.d4d.cetinler"
         }
     },
